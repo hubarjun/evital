@@ -145,7 +145,7 @@
         <img
           id="website"
           crossorigin="anonymous"
-          src="https://cdn.glitch.global/fd1ba06b-d9f9-4639-b62d-5a8d906708d3/service%20icon.png?v=1740209309078"
+          src="https://cdn.glitch.global/fd1ba06b-d9f9-4639-b62d-5a8d906708d3/gotoserviceicon.png?v=1740244740405"
         />
         <img
           id="location"
@@ -163,46 +163,134 @@
         position="0 0 0"
         look-controls="enabled: false"
         cursor="fuse: false; rayOrigin: mouse;"
-        raycaster="far: 30000; objects: .clickable"
+        raycaster="far: 40000; objects: .clickable"
       ></a-camera>
 
-      <!-- Image target and components -->
       <a-entity mytarget mindar-image-target="targetIndex: 0">
-        <!--         <a-video src="#video" height="1.7" position="0.02 0.12 0" width="1.05"  material="transparent: true; alphaTest: 0.5"></a-video> -->
         <a-plane src="#evital" height="0.7" width="1"></a-plane>
+        <a-text
+          position="-0.1 -0.66 0"
+          height="0.8"
+          width="0.8"
+          color="greenyellow"
+          value="Near by location"
+        ></a-text>
         <a-image
           visible="false"
-          id="location-btn"
+          id="location-btn1"
           class="clickable"
           src="#location"
-          position="-0.1 -0.5 0"
+          position="-0.45 -0.8 0"
           height="0.1"
+          color="red"
           width="0.1"
           rotation="0 0 0"
         ></a-image>
         <a-text
-          position="-0.18 -0.6 0"
+          visible="false"
+          position="-0.3 -0.8 0"
           height="0.8"
           width="0.8"
-          value="location"
+          class="clickable"
+          id="locationText1"
+          value="Bolt.Earth Charging Station(16.76 km)"
+        ></a-text>
+        <a-image
+          visible="false"
+          id="location-btn2"
+          class="clickable"
+          src="#location"
+          position="-0.45 -0.9 0"
+          height="0.1"
+          color="red"
+          width="0.1"
+          rotation="0 0 0"
+        ></a-image>
+        <a-text
+          visible="false"
+          position="-0.3 -0.9 0"
+          height="0.8"
+          width="0.8"
+          class="clickable"
+          id="locationText2"
+          value="Kazam Charging Station (23.15 km)"
+        ></a-text>
+        <a-image
+          visible="false"
+          id="location-btn3"
+          class="clickable"
+          src="#location"
+          position="-0.45 -1 0"
+          height="0.1"
+          color="red"
+          width="0.1"
+          rotation="0 0 0"
+        ></a-image>
+        <a-text
+          visible="false"
+          position="-0.3 -1 0"
+          height="0.8"
+          width="0.8"
+          class="clickable"
+          id="locationText3"
+          value="Kazam Charging Station (23.49 km)"
+        ></a-text>
+        <a-image
+          visible="false"
+          id="location-btn4"
+          class="clickable"
+          src="#location"
+          position="-0.45 -1.1 0"
+          height="0.1"
+          color="red"
+          width="0.1"
+          rotation="0 0 0"
+        ></a-image>
+        <a-text
+          visible="false"
+          position="-0.3 -1.1 0"
+          height="0.8"
+          width="0.8"
+          class="clickable"
+          id="locationText4"
+          value="Kazam Charging Station (23.58 km)"
+        ></a-text>
+        <a-image
+          visible="false"
+          id="location-btn5"
+          class="clickable"
+          src="#location"
+          position="-0.45 -1.2 0"
+          height="0.1"
+          color="red"
+          width="0.1"
+          rotation="0 0 0"
+        ></a-image>
+        <a-text
+          visible="false"
+          position="-0.3 -1.2 0"
+          height="0.8"
+          width="0.8"
+          class="clickable"
+          id="locationText5"
+          value="Bolt.Earth Charging Station (24.08 km)"
         ></a-text>
         <a-image
           visible="false"
           id="website-btn"
           class="clickable"
           src="#website"
-          position="0.1 -0.5 0"
+          position="0.05 -0.5 0"
           height="0.1"
-          width="0.1"
+          width="0.2"
           rotation="0 0 0"
         ></a-image>
-        <a-text
-          position="0.04 -0.6 0"
-          height="0.8"
-          width="0.8"
-          value="service"
-        ></a-text>
       </a-entity>
     </a-scene>
   </body>
 </html>
+<!-- <style>
+  body {
+    color: red;
+  }
+</style> -->
