@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/f321c50b-b818-458d-8546-896cf699799b/faviconHAWA.png?v=1716826745328"
+    />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Evital</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      #example-scanning-overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 70px;
+        background: transparent;
+        z-index: 2;
+      }
+      @media (min-aspect-ratio: 1/1) {
+        #example-scanning-overlay .inner {
+          width: 50vh;
+          height: 50vh;
+        }
+      }
+      @media (max-aspect-ratio: 1/1) {
+        #example-scanning-overlay .inner {
+          width: 80vw;
+          height: 80vw;
+        }
+      }
+
+      #example-scanning-overlay .inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        background: linear-gradient(to right, white 10px, transparent 10px) 0 0,
+          linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+          linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+          linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+          linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+          linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+          linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+          linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+      }
+
+      #example-scanning-overlay.hidden {
+        display: none;
+      }
+
+      #example-scanning-overlay img {
+        opacity: 0.8;
+        width: 80%;
+        align-self: center;
+      }
+
+      #example-scanning-overlay .inner .scanline {
+        position: absolute;
+        width: 100%;
+        height: 10px;
+        background: white;
+        animation: move 2s linear infinite;
+      }
+      @keyframes move {
+        0%,
+        100% {
+          top: 0%;
+        }
+        50% {
+          top: calc(100% - 10px);
+        }
+      }
+      button {
+        background: linear-gradient(
+            to bottom,
+            rgb(255 255 255 / 15%) 0%,
+            rgb(48 71 120 / 15%) 100%
+          ),
+          radial-gradient(at top center, #111111 0%, rgba(0, 0, 0, 0.4) 120%)
+            #111111;
+        padding: 10px 20px;
+        position: absolute;
+        bottom: 20%;
+        right: 50%;
+        display: none;
+        color: white;
+        transform: translate(50%, 50%);
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: medium;
+      }
+      button > i {
+        margin-inline-end: 15px;
+      }
+    </style>
+    <script src="service.js"></script>
+  </head>
+  <body>
+    <div id="example-scanning-overlay" class="hidden">
+      <div class="inner">
+        <img
+          src="https://cdn.glitch.global/fd1ba06b-d9f9-4639-b62d-5a8d906708d3/evital%20placeholder.png?v=1740201523632"
+        />
+        <div class="scanline"></div>
+      </div>
+    </div>
+
+    <a-scene
+      mindar-image="uiScanning: #example-scanning-overlay; imageTargetSrc:https://cdn.glitch.global/fd1ba06b-d9f9-4639-b62d-5a8d906708d3/evital%20image%20target.mind?v=1740201512099; uiLoading:no;"
+      color-space="sRGB"
+      renderer="alpha:true"
+      device-orientation-permission-ui="enabled: false"
+      xr-mode-ui="enabled: false"
+      emitevents="true"
+      loading-screen="dotsColor: white; backgroundColor: black"
+      cursor="rayOrigin: mouse"
+      raycaster="objects: .clickable"
+    >
+      <a-assets>
+        <img
+          id="website"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/fd1ba06b-d9f9-4639-b62d-5a8d906708d3/service%20icon.png?v=1740209309078"
+        />
+        <img
+          id="location"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e4162665-6c20-4005-8015-06a52bef2398/locationicon.svg?v=1727388266803"
+        />
+
+        <img
+          id="evitalservice"
+          src="https://cdn.glitch.global/fd1ba06b-d9f9-4639-b62d-5a8d906708d3/Back.png?v=1740202280194"
+        />
+      </a-assets>
+
+      <a-camera
+        position="0 0 0"
+        look-controls="enabled: false"
+        cursor="fuse: false; rayOrigin: mouse;"
+        raycaster="far: 30000; objects: .clickable"
+      ></a-camera>
+
+      <!-- Image target and components -->
+      <a-entity mytarget mindar-image-target="targetIndex: 0">
+        <!--         <a-video src="#video" height="1.7" position="0.02 0.12 0" width="1.05"  material="transparent: true; alphaTest: 0.5"></a-video> -->
+        <a-plane src="#evitalservice" height="0.7" width="1"></a-plane>
+        <a-image
+          visible="false"
+          id="location-btn"
+          class="clickable"
+          src="#location"
+          position="-0.1 -0.5 0"
+          height="0.1"
+          width="0.1"
+          rotation="0 0 0"
+        ></a-image>
+        <a-text
+          position="-0.18 -0.6 0"
+          height="0.8"
+          width="0.8"
+          value="location"
+        ></a-text>
+        <a-image
+          visible="false"
+          id="website-btn"
+          class="clickable"
+          src="#website"
+          position="0.1 -0.5 0"
+          height="0.1"
+          width="0.1"
+          rotation="0 0 0"
+        ></a-image>
+        <a-text
+          position="0.04 -0.6 0"
+          height="0.8"
+          width="0.8"
+          value="Home"
+        ></a-text>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
