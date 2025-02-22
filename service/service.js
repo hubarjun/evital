@@ -37,7 +37,7 @@ function isAppleDevice() {
 		
 			locationButton.addEventListener( 'click', function ( evt )
 			{
-				window.location.href = "https://g.co/kgs/9uN2vve";
+				window.location.href = "";
 			} );
 			websiteButton.addEventListener( 'click', function ( evt )
 			{
