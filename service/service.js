@@ -16,6 +16,8 @@ function isAppleDevice() {
   
   AFRAME.registerComponent("mytarget", {
     init: function () {
+      window.addEventListener("contextmenu",(e)=>e.preventDefault());
+
       const showInfo = () =>
 		{
 			let y = 0;
